@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class KhachHang extends Model
 {
@@ -16,5 +17,8 @@ class KhachHang extends Model
             "trang_thai",
             "annh",
     ];
+    public function createKhachang($data){
+            DB::table('khach_hangs')->insert($data);
+    }
     protected $tablename = "khach_hangs";
 }

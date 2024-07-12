@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\KhachHang;
-class KhachHangController extends Controller
+use App\Models\SanPham;
+class SanPhamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public $data = [];
+    public $sanpham;
+    public function __construct()
+    {
+       $this->sanpham = new SanPham();
+    }
     public function index()
     {
-        $khachangs = KhachHang::query()->get();
-        $this->data["title"]= "Danhh sách khách hàng";
-        $this->data["khachhangs"] = $khachangs;
-        return view('admins.khachhangs.index',  $this->data);
+      
+       
     }
 
     /**
@@ -23,9 +26,7 @@ class KhachHangController extends Controller
      */
     public function create()
     {
-        
-        $this->data["title"]= "Thêm mới khách hàng khách hàng";
-        return view('admins.khachhangs.them',$this->data);
+        //
     }
 
     /**
@@ -33,9 +34,11 @@ class KhachHangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
-
+    public function test(){
+        dd("đây là phương thức mới");
+    }
     /**
      * Display the specified resource.
      */
@@ -48,12 +51,8 @@ class KhachHangController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {   
-     
-        $khachang = KhachHang::query()->find($id);
-        $this->data["title"]= "Sửa khách hàng";
-        $this->data["khachhang"] = $khachang;
-        return view('admins.khachhangs.sua',  $this->data);
+    {
+        //
     }
 
     /**

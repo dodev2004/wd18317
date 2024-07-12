@@ -3,10 +3,15 @@
 Trang chủ
 @endsection
 @section('content')
+  @session('message')
+     <span class="alert alert-success">
+           {{ session('message') }}
+     </span>
+  @endsession
 <div  class="container w-75">
     <h2 class="text-center mb-2">Danh sách khách hàng</h2>
     <div class="text-end mb-3">
-       <a href="{{route('admin.khachhang.themmoi')}}" class="btn btn-primary">Thêm mới khách hàng</a>
+       <a href="{{route('khachhang.create')}}" class="btn btn-primary">Thêm mới khách hàng</a>
     </div>
     <table class="table">
         <thead>
@@ -36,7 +41,7 @@ Trang chủ
                @endif
             </td>
             <td>
-                <a href="{{route('admin.khachhang.sua',$item->id)}}" class="btn btn-info"><i class="fa-solid fa-pencil" style="color: #FFD43B;"></i></a>
+                <a href="{{route('khachhang.edit',$item->id)}}" class="btn btn-info"><i class="fa-solid fa-pencil" style="color: #FFD43B;"></i></a>
                 <a href="" class="btn btn-warning" onclick="return confirm('Bạn chắc chắn muốn xóa chứ')"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
             </td>
           </tr>

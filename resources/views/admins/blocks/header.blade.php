@@ -10,7 +10,7 @@
           <a class="nav-link " href="#">Người dùng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route("admin.khachhang.danhhsach")}}">Khách hàng</a>
+          <a class="nav-link active" href="{{route("khachhang.index")}}">Khách hàng</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Sản phẩm</a>
